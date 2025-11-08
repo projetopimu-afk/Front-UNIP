@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="https://play-lh.googleusercontent.com/VzUfEzZ2q-y6lWl9liKGTxg7d6Ym5i7yYaHNHZogN8VDrx0RJJ6055mRVUzNMqT7ci9v" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UNIP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#003865', // UNIP Dark Blue
+              'primary-hover': '#002c50', // Darker shade for hover
+              'secondary': '#0077c8', // UNIP Light Blue
+              'secondary-hover': '#005fa3', // Darker shade for hover
+              'background': '#f0f2f5', // A neutral, light grey
+              'surface': '#ffffff',
+              'on-surface': '#1f2937',
+              'on-surface-secondary': '#6b7280',
+            },
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-background text-on-surface">
+    <div id="root"></div>
+  </body>
+</html>
