@@ -1,63 +1,25 @@
+# Portal UNIP - Frontend Autônomo
 
-# Servidor Backend em Python para o Portal UNIP
+Esta é uma aplicação frontend **autônoma** (standalone) para o Portal UNIP, construída com React e TypeScript.
 
-Este é um servidor simples em Python usando o framework **Flask** que serve como backend para a aplicação frontend em React. Ele simula um banco de dados em memória e fornece os endpoints de API necessários para o funcionamento do portal.
+## Informação Importante: Não é Necessário um Servidor!
 
-## Requisitos
+Este projeto foi projetado para funcionar **sem a necessidade de um servidor backend separado**. Toda a lógica de "API" e os dados são simulados localmente no navegador, utilizando dados de exemplo (mock data) que estão dentro do próprio código.
 
-- Python 3.6 ou superior
-- `pip` (gerenciador de pacotes do Python)
+O arquivo `services.ts` gerencia os dados em memória, o que significa que você pode interagir com a aplicação (fazer login com os usuários de teste, adicionar turmas, etc.) diretamente no navegador. As alterações não serão salvas permanentemente, pois são reiniciadas a cada recarregamento da página.
 
-## 1. Instalação
+## Como Executar no Vercel
 
-Antes de rodar o servidor, você precisa instalar as dependências necessárias. Navegue até a pasta onde salvou este arquivo e execute o seguinte comando no seu terminal:
+Como esta é uma aplicação frontend pura que não requer um processo de compilação (build step), ela deve funcionar perfeitamente em qualquer serviço de hospedagem estática como o Vercel.
 
-```bash
-pip install Flask Flask-Cors
-```
+Basta fazer o deploy dos arquivos existentes. O Vercel servirá o `index.html`, e o navegador cuidará de carregar os módulos JavaScript, incluindo o React.
 
-- **Flask**: É o micro-framework web que estamos usando.
-- **Flask-Cors**: É uma extensão para lidar com o Cross-Origin Resource Sharing (CORS), permitindo que seu aplicativo React (rodando em um domínio/porta diferente) faça requisições para este servidor.
+## Usuários de Teste
 
-## 2. Como Executar o Servidor
+Para fins de demonstração, utilize os seguintes nomes de usuário na tela de login:
 
-Após instalar as dependências, você pode iniciar o servidor com um simples comando:
+- **Professor:** `ana.silva`
+- **Aluno:** `bruno.costa`
+- **Gestor:** `carlos.gestor`
 
-```bash
-python server.py
-```
-
-Se tudo ocorrer bem, você verá uma saída parecida com esta no seu terminal:
-
-```
- * Serving Flask app 'server'
- * Debug mode: on
- * Running on http://127.0.0.1:5000
-Press CTRL+C to quit
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: ...
-```
-
-Isso significa que o seu servidor backend está rodando e pronto para receber requisições na porta `5000`.
-
-## 3. Endpoints da API
-
-O servidor expõe os seguintes endpoints, que replicam a funcionalidade do arquivo `services.ts` do frontend:
-
-- `POST /api/login`: Autentica um usuário.
-- `GET /api/users`: Retorna todos os usuários.
-- `POST /api/users`: Cria um novo usuário.
-- `GET /api/teachers/<teacher_id>/classes`: Retorna as turmas de um professor.
-- `DELETE /api/classes/<class_id>`: Deleta uma turma.
-- `GET /api/students`: Retorna todos os alunos.
-- `GET /api/classes/<class_id>/students`: Retorna os alunos de uma turma específica.
-- `POST /api/classes/<class_id>/students`: Adiciona um aluno a uma turma.
-- `DELETE /api/classes/<class_id>/students/<student_id>`: Remove um aluno de uma turma.
-- `GET /api/students/<student_id>/classes`: Retorna as turmas de um aluno.
-- `GET /api/classes/<class_id>/activities`: Retorna as atividades de uma turma.
-- `GET /api/students/<student_id>/activities/<activity_id>/submission`: Retorna o envio de um aluno para uma atividade.
-- `POST /api/submissions`: Cria um novo envio de atividade.
-
-E um endpoint de verificação:
-- `GET /api/health`: Retorna `{"status": "ok"}` se o servidor estiver no ar.
+Qualquer senha funcionará.
