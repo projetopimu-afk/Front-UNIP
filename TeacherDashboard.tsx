@@ -20,7 +20,7 @@ const TeacherDashboard: React.FC<{ user: User }> = ({ user }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
+    <div className="flex flex-col md:flex-row min-h-screen bg-background">
       <nav className="md:w-64 bg-surface p-4 shadow-lg md:min-h-screen">
         <h2 className="text-lg font-bold text-on-surface mb-6">Painel de {user.role === Role.Manager ? 'Gestão' : 'Professor'}</h2>
         <ul>
